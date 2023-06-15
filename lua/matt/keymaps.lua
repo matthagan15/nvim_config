@@ -72,3 +72,14 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- Floaterm
+-- FloaTerm configuration
+keymap('n', "<leader>ft", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 zsh <CR> ", opts)
+keymap('n', "<leader>t", ":FloatermToggle myfloat<CR>", opts)
+keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", opts)
+
+
+
+-- Rust Hover --
+keymap("n", "<leader>h", ":RustHoverActions<CR>:RustHoverActions<CR>", opts)
+keymap("n", "<leader>ra", ":RustCodeAction<CR>", opts)

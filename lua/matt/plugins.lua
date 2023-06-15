@@ -44,6 +44,25 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use 'voldikss/vim-floaterm'
+
+use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make'
+}
+use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+}
 
   -- Git changes to left of numbers
   use "airblade/vim-gitgutter"
@@ -87,6 +106,8 @@ return packer.startup(function(use)
   use 'williamboman/mason.nvim'    
   require("mason").setup()
   use 'williamboman/mason-lspconfig.nvim'
+
+  -- use 'lervag/vimtex'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
